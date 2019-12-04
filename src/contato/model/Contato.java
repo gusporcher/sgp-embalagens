@@ -1,5 +1,9 @@
 package contato.model;
 
+import java.util.List;
+
+import parceiro.model.Representante;
+
 public class Contato {
 	private int idContato;
 	private String nome;
@@ -27,5 +31,6 @@ public class Contato {
 		setIdContato(contato.getIdContato());
 		setNome(contato.getNome());
 	}
+	
 
 }

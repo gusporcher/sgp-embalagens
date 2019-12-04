@@ -2,9 +2,12 @@ package application;
 	
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import contato.model.Cidade;
+import contato.model.Contato;
+import contato.model.Email;
 import contato.model.Endereco;
 import contato.model.DAO.CidadeDAO;
 import contato.model.DAO.EnderecoDAO;
@@ -32,24 +35,23 @@ public class Main extends Application {
 			primaryStage.show();	
 			*/	
 			
-			Cidade c = new Cidade();
-			c.setIdCidade(2);
+			Email e = new Email();
+			e.setIdContato(1);
+			e.setNome("gustavo");
+			e.setEmail("teste@teste");
+			e.setTipoEmail(0);
 			
-			Endereco e = new Endereco();
-			e.setBairro("centro");
-			e.setCep("93800064");
-			e.setCidade(c);
-			e.setComplemento("apto 403");
-			e.setLogradouro("ipiranga");
-			e.setNumero("64");
-			e.setTipoEndereco(0);
-			e.setIdEndereco(1);
+			List<Contato> contatos = new ArrayList<Contato>();
+			contatos.add(e);
 			
-			List<Endereco>en =new EnderecoDAO(ConnectionFactory.openConnection()).readAll();
-			
-			System.out.println(en);
-			
-			
+			for(Contato c: contatos) {
+				if(c instanceof Email) {
+					Email em = (Email) c;
+					System.out.println(em.getEmail());
+				}
+				
+			}
+								
 			
 		} catch(Exception e) {
 			e.printStackTrace();
